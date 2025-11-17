@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The 3-D model</title>
+
+  <!-- CesiumJS -->
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.134/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.134/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+
+  <!-- Your CSS file -->
+  <link rel="stylesheet" href="CSS.css">
+</head>
+<body>
+<div id="cesiumContainer"></div>
+
+<!-- Search UI -->
+<div class="search-box" id="searchBox">
+  <input id="searchInput" type="text" placeholder="🔍 Search building by Name (e.g., Natural Science2)" aria-label="Search building name" />
+  <button class="go" id="searchGo">Go</button>
+</div>
+<div class="search-hint" id="searchHint" role="status" aria-live="polite"></div>
+
+<!-- Floating button + panel HTML -->
+<div class="fab" id="filterFab" title="Filter">
+  <div class="icon">⚕️</div>
+</div>
+<div class="fab-label">Filter layers</div>
+
+<div class="filter-panel" id="filterPanel" aria-hidden="true">
+  <div class="header">
+    <div class="title">Filter — Health</div>
+    <button class="close-btn" id="panelClose" title="Close">✕</button>
+  </div>
+
+  <div class="content">
+    <button class="action" id="clinicBtn">Clinic</button>
+    <button class="action" id="mentalBtn">Mental Wellness</button>
+    <button class="reset" id="resetBtn">Reset (Show All)</button>
+  </div>
+
+  <div class="hint">Hides all other buildings; only selected buildings remain visible.</div>
+</div>
+<!-- Emergency Panic Button -->
+<div id="panicBtn" class="fab" title="Emergency Numbers">
+  🚨
+</div>
+
+<!-- Panic Popup Panel -->
+<div id="panicPanel" class="panic-panel" aria-hidden="true">
+  <div class="panic-header">🚨 Emergency Contacts</div>
+  <ul>
+    <li>Campus Security: 012 345 6789</li>
+    <li>Student Health Clinic: 012 987 6543</li>
+    <li>Mental Health Support: 012 555 1234</li>
+    <li>Police: 10111</li>
+    <li>Fire Department (Pretoria):012 358 2111</li>
+    <li>Ambulance:10177</li>
+  </ul>
+  <button id="panicClose" class="close-btn">✕ Close</button>
+</div>
+<!-- Legend UI -->
+<ul class="legend" id="legend">
+  <li data-layer="Buildings">🏢 Buildings</li>
+  <li data-layer="Main road">🛣️ Main Road</li>
+  <li data-layer="paths">🚶 Paths</li>
+  <li data-layer="Green spaces">🌳 Green Spaces</li>
+  <li data-layer="Lights">💡 Lights</li>
+  <li data-layer="Entrance">🚪 Entrances</li>
+</ul>
+
+<!-- Live Location Button -->
+<div class="fab" id="locBtn" title="Show My Location">
+  📍
+</div>
+
+
+
+<!-- Your JS file -->
+<script type="module" src="main.js"></script>
+</body>
+</html>
